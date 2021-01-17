@@ -159,16 +159,18 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="dab-y8-IKy">
-                                            <rect key="frame" x="5" y="7" width="401.66666666666669" height="60"/>
+                                            <rect key="frame" x="5" y="12" width="401.66666666666669" height="50"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kC9-TY-YoH">
-                                                    <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="YCw-vk-LS2"/>
+                                                        <constraint firstAttribute="height" constant="50" id="bfA-Ou-uU7"/>
                                                         <constraint firstAttribute="width" secondItem="kC9-TY-YoH" secondAttribute="height" multiplier="1:1" id="i6g-BK-VlO"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgC-HX-Wjg">
-                                                    <rect key="frame" x="85" y="20" width="316.66666666666669" height="20.333333333333329"/>
+                                                    <rect key="frame" x="75" y="14.999999999999998" width="326.66666666666669" height="20.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -223,16 +225,18 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="QR3-Uq-0yU">
-                                            <rect key="frame" x="5" y="5" width="401.66666666666669" height="60"/>
+                                            <rect key="frame" x="5" y="10" width="401.66666666666669" height="50"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Oyk-ZK-KQa" userLabel="group Image">
-                                                    <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="AsH-Px-5Ts"/>
+                                                        <constraint firstAttribute="height" constant="50" id="LHk-hn-Dwd"/>
                                                         <constraint firstAttribute="width" secondItem="Oyk-ZK-KQa" secondAttribute="height" multiplier="1:1" id="cMD-GI-I7j"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n9c-jD-W1c" userLabel="group label">
-                                                    <rect key="frame" x="85" y="20" width="316.66666666666669" height="20.333333333333329"/>
+                                                    <rect key="frame" x="75" y="14.999999999999998" width="326.66666666666669" height="20.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -275,7 +279,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="88" id="Em9-ad-Jgi" customClass="FriendTableViewCell" customModule="HW2_1" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="88" id="Em9-ad-Jgi" customClass="FriendTableViewCell" customModule="HW2_1" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="88"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Em9-ad-Jgi" id="FtS-fI-cDp">
@@ -283,16 +287,31 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="44W-U8-Uuh">
-                                            <rect key="frame" x="5" y="14" width="401.66666666666669" height="60"/>
+                                            <rect key="frame" x="5" y="19" width="401.66666666666669" height="50"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hIo-YO-1IZ" userLabel="Friend Foto Icon Image">
-                                                    <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aJc-E6-jrk">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hIo-YO-1IZ" userLabel="Friend Foto Icon Image">
+                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="50" id="H1l-tO-lJT"/>
+                                                                <constraint firstAttribute="width" constant="50" id="fyk-OK-XVr"/>
+                                                                <constraint firstAttribute="width" secondItem="hIo-YO-1IZ" secondAttribute="height" multiplier="1:1" id="vBb-ZU-ceZ"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="hIo-YO-1IZ" secondAttribute="height" multiplier="1:1" id="vBb-ZU-ceZ"/>
+                                                        <constraint firstItem="hIo-YO-1IZ" firstAttribute="centerY" secondItem="aJc-E6-jrk" secondAttribute="centerY" id="2dn-8C-Hyj"/>
+                                                        <constraint firstItem="hIo-YO-1IZ" firstAttribute="centerX" secondItem="aJc-E6-jrk" secondAttribute="centerX" id="QaH-go-zd7"/>
+                                                        <constraint firstAttribute="height" constant="50" id="hUh-Hx-zEX"/>
+                                                        <constraint firstAttribute="width" constant="50" id="kQC-TM-e9D"/>
                                                     </constraints>
-                                                </imageView>
+                                                </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MVa-OA-9gu" userLabel="Friend Name Label">
-                                                    <rect key="frame" x="78" y="20" width="323.66666666666669" height="20.333333333333329"/>
+                                                    <rect key="frame" x="68" y="14.999999999999998" width="333.66666666666669" height="20.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -307,7 +326,19 @@
                                         <constraint firstItem="44W-U8-Uuh" firstAttribute="leading" secondItem="FtS-fI-cDp" secondAttribute="leading" constant="5" id="VDs-vn-Vc2"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="friendFotoIconShadowRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.40000000000000002"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
+                                    <outlet property="friendFotoIconContainer" destination="aJc-E6-jrk" id="03z-eV-ltD"/>
                                     <outlet property="friendFotoIconImage" destination="hIo-YO-1IZ" id="ATk-aE-blU"/>
                                     <outlet property="friendNameLabel" destination="MVa-OA-9gu" id="RvQ-v1-AwH"/>
                                     <segue destination="ebC-ux-BcQ" kind="show" id="uHL-rm-y9S"/>
@@ -351,15 +382,25 @@
                                             <rect key="frame" x="5" y="5" width="150" height="150"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="9GW-a4-wNK" secondAttribute="height" multiplier="1:1" id="7Qj-bJ-fmK"/>
+                                                <constraint firstAttribute="width" constant="150" id="Fnr-d7-QqM"/>
+                                                <constraint firstAttribute="height" constant="150" id="Kmo-Bk-2Xe"/>
                                             </constraints>
                                         </imageView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ho2-fc-Lp6" customClass="LikeControl" customModule="HW2_1" customModuleProvider="target">
+                                            <rect key="frame" x="102" y="137" width="50" height="15"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </view>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="ho2-fc-Lp6" secondAttribute="bottom" constant="8" id="2m6-o3-3tX"/>
+                                        <constraint firstItem="ho2-fc-Lp6" firstAttribute="height" secondItem="9GW-a4-wNK" secondAttribute="height" multiplier="1/10" id="7Vv-Zw-Ok9"/>
                                         <constraint firstAttribute="trailing" secondItem="9GW-a4-wNK" secondAttribute="trailing" constant="5" id="JzP-mf-k7U"/>
                                         <constraint firstAttribute="bottom" secondItem="9GW-a4-wNK" secondAttribute="bottom" constant="5" id="MEG-Xq-WiM"/>
                                         <constraint firstItem="9GW-a4-wNK" firstAttribute="centerX" secondItem="e98-Hi-Fd6" secondAttribute="centerX" id="NFL-0S-Vkh"/>
                                         <constraint firstItem="9GW-a4-wNK" firstAttribute="centerY" secondItem="e98-Hi-Fd6" secondAttribute="centerY" id="T86-Dv-D11"/>
+                                        <constraint firstItem="ho2-fc-Lp6" firstAttribute="width" secondItem="9GW-a4-wNK" secondAttribute="width" multiplier="1/3" id="ZXk-b5-wVc"/>
                                         <constraint firstItem="9GW-a4-wNK" firstAttribute="top" secondItem="e98-Hi-Fd6" secondAttribute="top" constant="5" id="lTJ-z1-oCc"/>
+                                        <constraint firstAttribute="trailing" secondItem="ho2-fc-Lp6" secondAttribute="trailing" constant="8" id="mp4-sO-AGd"/>
                                         <constraint firstItem="9GW-a4-wNK" firstAttribute="leading" secondItem="e98-Hi-Fd6" secondAttribute="leading" constant="5" id="x2W-CQ-BB8"/>
                                     </constraints>
                                 </collectionViewCellContentView>
@@ -380,11 +421,11 @@
             </objects>
             <point key="canvasLocation" x="3837.68115942029" y="-323.64130434782612"/>
         </scene>
-        <!--Item-->
+        <!--Мои друзья-->
         <scene sceneID="33Y-dE-3Cs">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="f2M-NV-eiW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="BP4-9u-LaV"/>
+                    <tabBarItem key="tabBarItem" title="Мои друзья" image="person.2.fill" catalog="system" id="BP4-9u-LaV"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="NUp-An-5Nf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
@@ -399,11 +440,11 @@
             </objects>
             <point key="canvasLocation" x="2176.8115942028985" y="-320.38043478260875"/>
         </scene>
-        <!--Item-->
+        <!--Мои группы-->
         <scene sceneID="cFx-Xj-Lzf">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ate-Xk-CfU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Lab-hP-i9i"/>
+                    <tabBarItem key="tabBarItem" title="Мои группы" image="person.3.fill" catalog="system" id="Lab-hP-i9i"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ukN-TV-rIH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
@@ -420,6 +461,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="person.2.fill" catalog="system" width="128" height="80"/>
+        <image name="person.3.fill" catalog="system" width="128" height="61"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

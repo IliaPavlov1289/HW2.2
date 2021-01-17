@@ -21,6 +21,7 @@
 		C9BEF99125A8A40900BA3C00 /* FriendFotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BEF99025A8A40900BA3C00 /* FriendFotoCollectionViewCell.swift */; };
 		C9BEF99425A8B37B00BA3C00 /* FriendTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BEF99325A8B37B00BA3C00 /* FriendTableViewController.swift */; };
 		C9BEF99725A8B3AF00BA3C00 /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BEF99625A8B3AF00BA3C00 /* FriendTableViewCell.swift */; };
+		C9C618AF25B0C4D800C4EEAC /* LikeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C618AE25B0C4D800C4EEAC /* LikeControl.swift */; };
 		C9E8C29B25A7190D00E0E75B /* GroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E8C29A25A7190D00E0E75B /* GroupTableViewCell.swift */; };
 		C9E8C29E25A7893000E0E75B /* MyGroupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E8C29D25A7893000E0E75B /* MyGroupTableViewController.swift */; };
 /* End PBXBuildFile section */
@@ -42,6 +43,7 @@
 		C9BEF99025A8A40900BA3C00 /* FriendFotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendFotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		C9BEF99325A8B37B00BA3C00 /* FriendTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableViewController.swift; sourceTree = "<group>"; };
 		C9BEF99625A8B3AF00BA3C00 /* FriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
+		C9C618AE25B0C4D800C4EEAC /* LikeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeControl.swift; sourceTree = "<group>"; };
 		C9E8C29A25A7190D00E0E75B /* GroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTableViewCell.swift; sourceTree = "<group>"; };
 		C9E8C29D25A7893000E0E75B /* MyGroupTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,6 +100,7 @@
 				C9E8C29D25A7893000E0E75B /* MyGroupTableViewController.swift */,
 				C9BEF98D25A89C0A00BA3C00 /* FriendFotoCollectionViewController.swift */,
 				C9BEF99325A8B37B00BA3C00 /* FriendTableViewController.swift */,
+				C9C618AE25B0C4D800C4EEAC /* LikeControl.swift */,
 			);
 			path = HW2.1;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 			files = (
 				C92441BA258F9B2B00A95FA2 /* LoginViewController.swift in Sources */,
 				C9BEF98B25A8767000BA3C00 /* MyGroupTableViewCell.swift in Sources */,
+				C9C618AF25B0C4D800C4EEAC /* LikeControl.swift in Sources */,
 				C9E8C29E25A7893000E0E75B /* MyGroupTableViewController.swift in Sources */,
 				C9BEF99425A8B37B00BA3C00 /* FriendTableViewController.swift in Sources */,
 				C993571125A5D70200C1D851 /* GroupTableViewController.swift in Sources */,

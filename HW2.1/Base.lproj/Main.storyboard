@@ -121,7 +121,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-497" y="-15"/>
+            <point key="canvasLocation" x="-451" y="346"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="wSv-Jj-8zI">
@@ -136,11 +136,31 @@
                     <connections>
                         <segue destination="f2M-NV-eiW" kind="relationship" relationship="viewControllers" id="6U5-u5-p3h"/>
                         <segue destination="Ate-Xk-CfU" kind="relationship" relationship="viewControllers" id="Qjp-Zr-Pfc"/>
+                        <segue destination="6Ux-S3-Wro" kind="relationship" relationship="viewControllers" id="3rr-SS-Gf5"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zlt-wl-s8n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="289.85507246376812" y="-14.673913043478262"/>
+            <point key="canvasLocation" x="522" y="346"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="1Wz-gN-jID">
+            <objects>
+                <tableViewController id="6Ux-S3-Wro" customClass="NewsTableViewController" customModule="HW2_1" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Wje-Q3-dWT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <connections>
+                            <outlet property="dataSource" destination="6Ux-S3-Wro" id="Nxv-jo-MX2"/>
+                            <outlet property="delegate" destination="6Ux-S3-Wro" id="414-9k-jox"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Item" image="newspaper.fill" catalog="system" id="Xv7-lD-GX6"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PVM-gr-8UW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2175" y="1015"/>
         </scene>
         <!--Мои группы-->
         <scene sceneID="EAU-SK-Nlo">
@@ -461,6 +481,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="newspaper.fill" catalog="system" width="128" height="111"/>
         <image name="person.2.fill" catalog="system" width="128" height="80"/>
         <image name="person.3.fill" catalog="system" width="128" height="61"/>
         <systemColor name="systemBackgroundColor">

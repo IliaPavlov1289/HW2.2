@@ -38,13 +38,16 @@ class LikeControl: UIControl {
         isLiked = !isLiked
         if isLiked {
             countLike+=1
-            sender.setTitle("\(countLike)", for: .normal)
             sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
         } else {
             countLike-=1
-            sender.setTitle("\(countLike)", for: .normal)
             sender.setImage(UIImage(systemName: "heart"), for: .normal)
         }
+        UIView.transition(with: sender,
+                          duration: 0.25,
+                          options: .transitionFlipFromLeft,
+                          animations: {sender.setTitle("\(self.countLike)", for: .normal)
+                          })
     }
 }
 

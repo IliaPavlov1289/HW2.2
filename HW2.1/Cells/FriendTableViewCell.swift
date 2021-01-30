@@ -39,6 +39,8 @@ class FriendTableViewCell: UITableViewCell {
         friendFotoIconContainer.layer.shadowOffset = CGSize(width: 5, height: 1)
         friendFotoIconContainer.layer.shadowRadius = shadowRadius
         friendFotoIconContainer.layer.shadowOpacity = shadowOpacity
-        
     }
+    
+    
+    
 }

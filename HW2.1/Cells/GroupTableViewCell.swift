@@ -11,5 +11,16 @@ class GroupTableViewCell: UITableViewCell {
 
     @IBOutlet weak var groupImage: UIImageView!
     @IBOutlet weak var groupLabel: UILabel!
+    @IBOutlet weak var groupImageContainer: UIView!
+   
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        groupImage.layer.cornerRadius = groupImage.frame.width / 2
+        groupImageContainer.layer.cornerRadius = groupImageContainer.frame.width / 2
+        groupImageContainer.layer.shadowColor = UIColor.blue.cgColor
+        groupImageContainer.layer.shadowOffset = CGSize(width: 5, height: 1)
+        groupImageContainer.layer.shadowRadius = 4
+        groupImageContainer.layer.shadowOpacity = 0.4
+    }
     
 }

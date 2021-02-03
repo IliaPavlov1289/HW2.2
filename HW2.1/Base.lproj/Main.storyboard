@@ -431,49 +431,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nBe-CB-42k">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7J6-Qy-47z">
                             <size key="itemSize" width="128" height="128"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="Cell" id="tWm-uX-FOR" customClass="FriendFotoCollectionViewCell" customModule="HW2_1" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="Cell" id="tWm-uX-FOR" customClass="FriendFotoCollectionViewCell" customModule="HW2_1" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="e98-Hi-Fd6">
-                                    <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="RbZ-Ih-yLD">
+                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9GW-a4-wNK" userLabel="Friend Foto Image">
-                                            <rect key="frame" x="5" y="5" width="150" height="150"/>
+                                            <rect key="frame" x="2" y="2" width="124" height="124"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="9GW-a4-wNK" secondAttribute="height" multiplier="1:1" id="7Qj-bJ-fmK"/>
-                                                <constraint firstAttribute="width" constant="150" id="Fnr-d7-QqM"/>
-                                                <constraint firstAttribute="height" constant="150" id="Kmo-Bk-2Xe"/>
                                             </constraints>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ho2-fc-Lp6" customClass="LikeControl" customModule="HW2_1" customModuleProvider="target">
-                                            <rect key="frame" x="102" y="137" width="50" height="15"/>
+                                            <rect key="frame" x="78.666666666666671" y="107.66666666666667" width="41.333333333333329" height="12.333333333333329"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </view>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="ho2-fc-Lp6" secondAttribute="bottom" constant="8" id="2m6-o3-3tX"/>
                                         <constraint firstItem="ho2-fc-Lp6" firstAttribute="height" secondItem="9GW-a4-wNK" secondAttribute="height" multiplier="1/10" id="7Vv-Zw-Ok9"/>
-                                        <constraint firstAttribute="trailing" secondItem="9GW-a4-wNK" secondAttribute="trailing" constant="5" id="JzP-mf-k7U"/>
-                                        <constraint firstAttribute="bottom" secondItem="9GW-a4-wNK" secondAttribute="bottom" constant="5" id="MEG-Xq-WiM"/>
-                                        <constraint firstItem="9GW-a4-wNK" firstAttribute="centerX" secondItem="e98-Hi-Fd6" secondAttribute="centerX" id="NFL-0S-Vkh"/>
-                                        <constraint firstItem="9GW-a4-wNK" firstAttribute="centerY" secondItem="e98-Hi-Fd6" secondAttribute="centerY" id="T86-Dv-D11"/>
+                                        <constraint firstItem="9GW-a4-wNK" firstAttribute="centerX" secondItem="RbZ-Ih-yLD" secondAttribute="centerX" id="NFL-0S-Vkh"/>
+                                        <constraint firstItem="9GW-a4-wNK" firstAttribute="centerY" secondItem="RbZ-Ih-yLD" secondAttribute="centerY" id="T86-Dv-D11"/>
                                         <constraint firstItem="ho2-fc-Lp6" firstAttribute="width" secondItem="9GW-a4-wNK" secondAttribute="width" multiplier="1/3" id="ZXk-b5-wVc"/>
-                                        <constraint firstItem="9GW-a4-wNK" firstAttribute="top" secondItem="e98-Hi-Fd6" secondAttribute="top" constant="5" id="lTJ-z1-oCc"/>
                                         <constraint firstAttribute="trailing" secondItem="ho2-fc-Lp6" secondAttribute="trailing" constant="8" id="mp4-sO-AGd"/>
-                                        <constraint firstItem="9GW-a4-wNK" firstAttribute="leading" secondItem="e98-Hi-Fd6" secondAttribute="leading" constant="5" id="x2W-CQ-BB8"/>
+                                        <constraint firstItem="9GW-a4-wNK" firstAttribute="width" secondItem="RbZ-Ih-yLD" secondAttribute="width" multiplier="0.97" id="tOh-JO-rTI"/>
                                     </constraints>
                                 </collectionViewCellContentView>
-                                <size key="customSize" width="160" height="160"/>
+                                <size key="customSize" width="128" height="128"/>
                                 <connections>
                                     <outlet property="friendFotoImage" destination="9GW-a4-wNK" id="gaX-ex-u6m"/>
+                                    <segue destination="Pud-fK-27x" kind="push" identifier="showPhoto" id="ZtA-7b-NZ3"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -487,6 +483,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r9e-ej-UL8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3837.68115942029" y="-323.64130434782612"/>
+        </scene>
+        <!--Preview Photo View Controller-->
+        <scene sceneID="Y4T-lX-QcX">
+            <objects>
+                <viewController id="Pud-fK-27x" customClass="PreviewPhotoViewController" customModule="HW2_1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lOj-ym-r7p">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YAN-4c-7Gw" userLabel="Preview Photo">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ggx-VB-P2A" userLabel="Next Preview Photo">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9oX-M3-76r" userLabel="Prev Preview Photo">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vt2-oE-5vw"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="YAN-4c-7Gw" firstAttribute="width" secondItem="lOj-ym-r7p" secondAttribute="width" id="10J-vx-9fX"/>
+                            <constraint firstItem="ggx-VB-P2A" firstAttribute="centerY" secondItem="lOj-ym-r7p" secondAttribute="centerY" id="8sA-Mb-fWh"/>
+                            <constraint firstItem="9oX-M3-76r" firstAttribute="width" secondItem="YAN-4c-7Gw" secondAttribute="width" id="GPJ-de-Sj1"/>
+                            <constraint firstItem="YAN-4c-7Gw" firstAttribute="height" secondItem="lOj-ym-r7p" secondAttribute="height" id="KGg-lU-iVM"/>
+                            <constraint firstItem="9oX-M3-76r" firstAttribute="centerY" secondItem="lOj-ym-r7p" secondAttribute="centerY" id="Lb3-ps-zxw"/>
+                            <constraint firstItem="9oX-M3-76r" firstAttribute="height" secondItem="YAN-4c-7Gw" secondAttribute="height" id="P8Y-ay-oEA"/>
+                            <constraint firstItem="YAN-4c-7Gw" firstAttribute="centerX" secondItem="lOj-ym-r7p" secondAttribute="centerX" id="TBA-1H-P3U"/>
+                            <constraint firstItem="ggx-VB-P2A" firstAttribute="height" secondItem="YAN-4c-7Gw" secondAttribute="height" id="UAL-tH-TME"/>
+                            <constraint firstItem="YAN-4c-7Gw" firstAttribute="centerY" secondItem="lOj-ym-r7p" secondAttribute="centerY" id="WGi-Ox-0fR"/>
+                            <constraint firstItem="ggx-VB-P2A" firstAttribute="width" secondItem="YAN-4c-7Gw" secondAttribute="width" id="g1p-2h-Xce"/>
+                            <constraint firstItem="ggx-VB-P2A" firstAttribute="centerX" secondItem="lOj-ym-r7p" secondAttribute="centerX" id="ta3-rp-sOn"/>
+                            <constraint firstItem="9oX-M3-76r" firstAttribute="centerX" secondItem="lOj-ym-r7p" secondAttribute="centerX" id="wDy-MA-eC5"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="XyO-JS-75X"/>
+                    <connections>
+                        <outlet property="nextPreviewPhoto" destination="ggx-VB-P2A" id="iJN-3M-dZD"/>
+                        <outlet property="prevPreviewPhoto" destination="9oX-M3-76r" id="3e0-Cd-w9Q"/>
+                        <outlet property="previewPhoto" destination="YAN-4c-7Gw" id="hVe-vE-BRn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CJY-il-RDA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5281" y="-320"/>
         </scene>
         <!--Мои друзья-->
         <scene sceneID="33Y-dE-3Cs">

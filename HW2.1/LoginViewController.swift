@@ -61,34 +61,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func didTabButton(_ sender: UIButton) {
-        
-        
-        
-//        let layer = CAShapeLayer()
-//        layer.bounds = view.bounds
-//        layer.backgroundColor = UIColor.white.cgColor
-//        layer.position = CGPoint(x: view.center.x, y: view.center.y)
-//        view.layer.addSublayer(layer)
-//
-//        let circleLayer1 = CAShapeLayer()
-//        circleLayer1.backgroundColor = UIColor.blue.cgColor
-//        circleLayer1.bounds = CGRect(x: 0, y: 0, width: 20, height: 20)
-//        circleLayer1.position = CGPoint(x: view.center.x, y: view.center.y)
-//        circleLayer1.cornerRadius = 10
-//
-//        let circleLayer2 = circleLayer1
-//        circleLayer2.position.x = view.center.x - 50
-//
-//        let circleLayer3 = circleLayer1
-//        circleLayer3.position.x = view.center.x + 50
-//
-//        view.layer.addSublayer(circleLayer1)
-//        view.layer.addSublayer(circleLayer2)
-//        view.layer.addSublayer(circleLayer3)
-//
-//        print(layer.frame.size.height)
-//        print(containerView.frame.size.height)
-//
+
     }
     
     

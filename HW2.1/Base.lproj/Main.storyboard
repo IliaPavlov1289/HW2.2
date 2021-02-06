@@ -534,7 +534,7 @@
         <!--Мои друзья-->
         <scene sceneID="33Y-dE-3Cs">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="f2M-NV-eiW" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="f2M-NV-eiW" customClass="CustomNavigationViewController" customModule="HW2_1" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Мои друзья" image="person.2.fill" catalog="system" id="BP4-9u-LaV"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="NUp-An-5Nf">

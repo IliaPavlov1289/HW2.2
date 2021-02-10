@@ -24,6 +24,7 @@
 		C92441CC258FAD2F00A95FA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C92441BB258F9B2B00A95FA2 /* Main.storyboard */; };
 		C93BBCCE25BC650100DB97F7 /* SearchHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93BBCCD25BC650100DB97F7 /* SearchHeader.swift */; };
 		C93BBCD125BC65DC00DB97F7 /* SearchHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = C93BBCD025BC65DC00DB97F7 /* SearchHeader.xib */; };
+		C93FCA8825CEF0B90022EA8E /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93FCA8725CEF0B90022EA8E /* Session.swift */; };
 		C942607325CECC650009F91A /* MyInteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = C942607225CECC650009F91A /* MyInteractiveTransition.swift */; };
 		C945811D25BDACAD0058D1DF /* CommentsControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C945811C25BDACAD0058D1DF /* CommentsControl.swift */; };
 		C945812025BDACFC0058D1DF /* RepostControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C945811F25BDACFB0058D1DF /* RepostControl.swift */; };
@@ -62,6 +63,7 @@
 		C92441C3258F9B2C00A95FA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C93BBCCD25BC650100DB97F7 /* SearchHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHeader.swift; sourceTree = "<group>"; };
 		C93BBCD025BC65DC00DB97F7 /* SearchHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchHeader.xib; sourceTree = "<group>"; };
+		C93FCA8725CEF0B90022EA8E /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		C942607225CECC650009F91A /* MyInteractiveTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInteractiveTransition.swift; sourceTree = "<group>"; };
 		C945811C25BDACAD0058D1DF /* CommentsControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsControl.swift; sourceTree = "<group>"; };
 		C945811F25BDACFB0058D1DF /* RepostControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepostControl.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 		C92441B4258F9B2B00A95FA2 /* HW2.1 */ = {
 			isa = PBXGroup;
 			children = (
+				C93FCA8625CEF08E0022EA8E /* Networing */,
 				C9052E5C25CC7A43006417CA /* Helpers */,
 				C945811B25BDABCB0058D1DF /* CommonControls */,
 				C9E18EAB25B8A4D300011D89 /* XIB */,
@@ -153,6 +156,14 @@
 				C9DBAD7425C6BC9500BBC551 /* PreviewPhotoViewController.swift */,
 			);
 			path = HW2.1;
+			sourceTree = "<group>";
+		};
+		C93FCA8625CEF08E0022EA8E /* Networing */ = {
+			isa = PBXGroup;
+			children = (
+				C93FCA8725CEF0B90022EA8E /* Session.swift */,
+			);
+			path = Networing;
 			sourceTree = "<group>";
 		};
 		C945811B25BDABCB0058D1DF /* CommonControls */ = {
@@ -274,6 +285,7 @@
 				C92441B8258F9B2B00A95FA2 /* SceneDelegate.swift in Sources */,
 				C9052E5E25CC7A83006417CA /* CustomNavigationViewController.swift in Sources */,
 				C90783AB25AA151300894143 /* User.swift in Sources */,
+				C93FCA8825CEF0B90022EA8E /* Session.swift in Sources */,
 				C945812025BDACFC0058D1DF /* RepostControl.swift in Sources */,
 				C9D49E7C25C1FFE7006FB067 /* LoaderViewController.swift in Sources */,
 				C91474C825B9FEF00026A1BD /* NewsTableViewController.swift in Sources */,

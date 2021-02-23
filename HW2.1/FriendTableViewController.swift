@@ -30,6 +30,8 @@ class FriendTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        tableView.register(FriendTableViewCell.self, forCellReuseIdentifier: "Cell")
+        
         filteredFriends = friends
         sections = createHeaderSections()
         

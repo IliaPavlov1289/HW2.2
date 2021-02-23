@@ -9,7 +9,7 @@ import UIKit
 
 class MyGroupTableViewController: UITableViewController {
     
-    var groups: [Group] = []
+    var groups: [Group]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,13 +21,13 @@ class MyGroupTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return groups.count
+        return groups?.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? MyGroupTableViewCell {
-            cell.myGroupLabel.text = groups[indexPath.row].groupName
-            cell.myGroupImage.image = UIImage(named:groups[indexPath.row].groupIcon)
+            cell.myGroupLabel.text = groups?[indexPath.row].groupName
+            cell.myGroupImage.image = UIImage(named:groups?[indexPath.row].groupIcon ?? "")
             
             return cell
         }
@@ -37,7 +37,7 @@ class MyGroupTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            groups.remove(at: indexPath.row)
+            groups?.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
@@ -46,11 +46,11 @@ class MyGroupTableViewController: UITableViewController {
         
         guard let tableViewController = segue.source as? GroupTableViewController,
               let indexPath = tableViewController.tableView.indexPathForSelectedRow else {return}
-        let group = tableViewController.groups[indexPath.row]
+        let group = tableViewController.groups?[indexPath.row]
         
-        if groups.filter({$0.groupID == group.groupID}).count > 0 {return}
+        if groups?.filter({$0.groupID == group?.groupID}).count ?? 0 > 0 {return}
         
-        groups.append(group)
+        groups!.append(group!)
         tableView.reloadData()
     }
 

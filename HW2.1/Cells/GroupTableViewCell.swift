@@ -12,6 +12,11 @@ class GroupTableViewCell: UITableViewCell {
     @IBOutlet weak var groupImage: UIImageView!
     @IBOutlet weak var groupLabel: UILabel!
     @IBOutlet weak var groupImageContainer: UIView!
+    
+    override func prepareForReuse() {
+        groupLabel.text = ""
+
+    }
    
     override func awakeFromNib() {
         super.awakeFromNib()

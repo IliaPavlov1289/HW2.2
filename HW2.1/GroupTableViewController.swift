@@ -8,25 +8,34 @@
 import UIKit
 
 class GroupTableViewController: UITableViewController {
-    
-    let groups = [
-    Group(groupID: "1", groupName: "group1", groupIcon: "groupIcon"),
-    Group(groupID: "2", groupName: "group2", groupIcon: "groupIcon"),
-    Group(groupID: "3", groupName: "group3", groupIcon: "groupIcon")
-    ]
-    
-    var filteredGroups: [Group] = []
+
+    var groups: [Group]?
+
+    var filteredGroups: [Group]? = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         filteredGroups = groups
+//        NetworkManager.loadUserGroups(token: Session.shared.token) { [weak self] groups in
+//            self?.groups = groups
+//            self?.tableView?.reloadData()
+//        }
+//        tableView.register(UINib(nibName: "GroupCell", bundle: nil), forCellReuseIdentifier: "groupCell")
+    
+        tableView.register(GroupTableViewCell.self, forCellReuseIdentifier: "groooopCell")
         tableView.rowHeight = 60
         tableView.register(UINib(nibName: "SearchHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "SearchHeader")
-        
+
             if let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SearchHeader") as? SearchHeader {
                 tableView.tableHeaderView = header
                 header.searchBar.delegate = self
             }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
     }
 
 
@@ -35,21 +44,24 @@ class GroupTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredGroups.count
+        return filteredGroups?.count ?? 0
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? GroupTableViewCell{
-            cell.groupLabel.text = filteredGroups[indexPath.row].groupName
-            cell.groupImage.image = UIImage(named:filteredGroups[indexPath.row].groupIcon)
-            
+        print("11111111111122222222222")
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "groooopCell", for: indexPath) as? GroupTableViewCell{
+            cell.groupLabel?.text = filteredGroups?[indexPath.row].groupName
+            print(cell.groupLabel?.text)
+            print(filteredGroups?[indexPath.row].groupName)
+          //  cell.groupImage?.image = UIImage(named:filteredGroups?[indexPath.row].groupIcon ?? "")
             return cell
         }
-        
+
+        print("000000000000000000000")
         return UITableViewCell()
 
     }
-    
+
 }
 
 extension GroupTableViewController: UISearchBarDelegate {
@@ -58,13 +70,14 @@ extension GroupTableViewController: UISearchBarDelegate {
             if searchText == "" {
                 filteredGroups = groups
             } else {
-                filteredGroups = groups.filter { (group) -> Bool in
+                filteredGroups? = groups?.filter { (group) -> Bool in
             return group.groupName.contains(searchText)
-            }
+                } ?? []
        }
-        
+
         tableView.reloadData()
     }
-    
+
 
 }
+

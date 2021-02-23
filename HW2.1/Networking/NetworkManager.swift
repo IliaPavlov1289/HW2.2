@@ -8,6 +8,7 @@
 import Foundation
 import Alamofire
 
+
 class NetworkManager {
 
     private static let sessionAF: Alamofire.Session = {
@@ -24,20 +25,22 @@ class NetworkManager {
     
     }
     
-    static func loadUserGroups(token: String) {
+    static func loadUserGroups(token: String, completion: @escaping ([Group]) -> Void) {
         let baseURL = "https://api.vk.com"
         let path = "/method/groups.get"
-        
+
         let params: Parameters = [
             "access_token": token,
             "extended": 1,
             "v": "5.92"
         ]
-        
-        NetworkManager.sessionAF.request(baseURL + path, method: .get, parameters: params).responseJSON { (response) in
-            guard let json = response.value else { return }
+
+        NetworkManager.sessionAF.request(baseURL + path, method: .get, parameters: params).responseData { response in
+            guard let data = response.value else {return}
+
+            let groups = try! JSONDecoder().decode(GroupResponse.self, from: data).response.items
             
-            print(json)
+            completion(groups)
         }
     }
     

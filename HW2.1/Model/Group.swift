@@ -7,8 +7,35 @@
 
 import Foundation
 
-struct Group {
-    let groupID: String
-    let groupName: String
-    let groupIcon: String
+class Group: Decodable {
+    var groupID = 0.0
+    var groupName = ""
+    var groupIcon = ""
+    
+    enum CodingKeys: String, CodingKey {
+        case groupID = "id"
+        case groupName = "name"
+        case groupIcon = "photo_50"
+    }
+    
+    convenience required init(from decoder: Decoder) throws {
+        self.init()
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.groupID = try values.decode(Double.self, forKey: .groupID)
+        self.groupName = try values.decode(String.self, forKey: .groupName)
+        self.groupIcon = try values.decode(String.self, forKey: .groupIcon)
+    }
 }
+
+class GroupList: Decodable {
+    let items: [Group]
+}
+
+class GroupResponse: Decodable {
+    let response : GroupList
+}
+
+
+
+
+

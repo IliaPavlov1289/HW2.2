@@ -16,13 +16,9 @@ class GroupTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         filteredGroups = groups
-//        NetworkManager.loadUserGroups(token: Session.shared.token) { [weak self] groups in
-//            self?.groups = groups
-//            self?.tableView?.reloadData()
-//        }
-//        tableView.register(UINib(nibName: "GroupCell", bundle: nil), forCellReuseIdentifier: "groupCell")
+
+        tableView.register(UINib(nibName: "VKTableViewCell", bundle: nil), forCellReuseIdentifier: "VKCell")
     
-        tableView.register(GroupTableViewCell.self, forCellReuseIdentifier: "groooopCell")
         tableView.rowHeight = 60
         tableView.register(UINib(nibName: "SearchHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "SearchHeader")
 
@@ -39,25 +35,18 @@ class GroupTableViewController: UITableViewController {
     }
 
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredGroups?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("11111111111122222222222")
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "groooopCell", for: indexPath) as? GroupTableViewCell{
-            cell.groupLabel?.text = filteredGroups?[indexPath.row].groupName
-            print(cell.groupLabel?.text)
-            print(filteredGroups?[indexPath.row].groupName)
-          //  cell.groupImage?.image = UIImage(named:filteredGroups?[indexPath.row].groupIcon ?? "")
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "VKCell", for: indexPath) as? VKTableViewCell{
+            cell.cellVKLabel?.text = filteredGroups?[indexPath.row].groupName
+            cell.downLoadImage(from: filteredGroups?[indexPath.row].groupIcon ?? "")
             return cell
         }
 
-        print("000000000000000000000")
         return UITableViewCell()
 
     }

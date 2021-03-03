@@ -71,23 +71,14 @@ extension VkLoginViewController: WKNavigationDelegate {
         }
         
         Session.shared.token = token
-        
-        NetworkManager.loadUserGroups(token: token) { [weak self] (Groups) in
-            print(Groups[1].groupName)
-            
-            let groupVC = GroupTableViewController()
-            groupVC.groups = Groups
-            
-            self?.navigationController?.pushViewController(groupVC, animated: true)
-        }
+              
         
 //        NetworkManager.loadSearchGroups(token: token, searchText: "Vologda")
-//        
-//        NetworkManager.loadUserFriends(token: token)
 //        
 //        NetworkManager.loadUserPhotos(token: token)
         
         
         decisionHandler(.cancel)
+        performSegue(withIdentifier:"ToTabBar", sender: nil)
     }
 }

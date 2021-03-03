@@ -1,0 +1,34 @@
+//
+//  Photo.swift
+//  HW2.1
+//
+//  Created by Илья Павлов on 28.02.2021.
+//
+
+import Foundation
+
+class Photo: Decodable {
+    var photoUrl = ""
+    
+    enum CodingKeys: String, CodingKey {
+        case photoUrl = "url"
+    }
+    
+    convenience required init(from decoder: Decoder) throws {
+        self.init()
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        self.photoUrl = try values.decode(String.self, forKey: .photoUrl)
+    }
+}
+
+class PhotoSizes: Decodable {
+    let sizes: [Photo]
+}
+
+class PhotoList: Decodable {
+    let items: [PhotoSizes]
+}
+
+class PhotoResponse: Decodable {
+    let response : PhotoList
+}

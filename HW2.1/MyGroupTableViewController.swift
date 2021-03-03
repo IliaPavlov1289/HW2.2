@@ -10,10 +10,35 @@ import UIKit
 class MyGroupTableViewController: UITableViewController {
     
     var groups: [Group]?
+    var filteredGroups: [Group]? = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        tableView.register(UINib(nibName: "VKTableViewCell", bundle: nil), forCellReuseIdentifier: "VKCell")
+    
         tableView.rowHeight = 60
+        tableView.register(UINib(nibName: "SearchHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "SearchHeader")
+
+            if let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SearchHeader") as? SearchHeader {
+                tableView.tableHeaderView = header
+                header.searchBar.delegate = self
+            }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let token = Session.shared.token
+        
+        NetworkManager.loadUserGroups(token: token) { [weak self] (Groups) in
+
+            self?.groups = Groups
+            self?.filteredGroups = self?.groups ?? []
+            
+            self?.tableView.reloadData()
+        }
+
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -21,14 +46,13 @@ class MyGroupTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return groups?.count ?? 0
+        return filteredGroups?.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? MyGroupTableViewCell {
-            cell.myGroupLabel.text = groups?[indexPath.row].groupName
-            cell.myGroupImage.image = UIImage(named:groups?[indexPath.row].groupIcon ?? "")
-            
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "VKCell", for: indexPath) as? VKTableViewCell{
+            cell.cellVKLabel?.text = filteredGroups?[indexPath.row].groupName ?? ""
+            cell.downLoadImage(from: filteredGroups?[indexPath.row].groupIcon ?? "")
             return cell
         }
         
@@ -53,5 +77,22 @@ class MyGroupTableViewController: UITableViewController {
         groups!.append(group!)
         tableView.reloadData()
     }
+
+}
+
+extension MyGroupTableViewController: UISearchBarDelegate {
+
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+            if searchText == "" {
+                filteredGroups = groups
+            } else {
+                filteredGroups? = groups?.filter { (group) -> Bool in
+            return group.groupName.contains(searchText)
+                } ?? []
+       }
+
+        tableView.reloadData()
+    }
+
 
 }

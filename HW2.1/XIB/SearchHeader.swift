@@ -11,6 +11,7 @@ class SearchHeader: UITableViewHeaderFooterView {
 
     @IBOutlet weak var searchBar: UISearchBar!
     
+    
 }
 
 

@@ -29,12 +29,7 @@ class LoginViewController: UIViewController {
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         let result =  checkUserCredentials()
-        
-        let user = Session.shared
-        user.userID = 777
-        user.token = "777777777777777777777777777777777777777777777777777777777777777777"
-        print(user)
-        
+
         if !result {
             showAlert()
         }

@@ -60,37 +60,44 @@ class NetworkManager {
             print(json)
         }
     }
-    
-    static func loadUserFriends(token: String) {
+
+    static func loadUserFriends(token: String, completion: @escaping ([User]) -> Void) {
         let baseURL = "https://api.vk.com"
         let path = "/method/friends.get"
         
         let params: Parameters = [
             "access_token": token,
-            "v": "5.92"
+            "v": "5.92",
+            "fields": "nickname,photo_50"
         ]
-        
-        NetworkManager.sessionAF.request(baseURL + path, method: .get, parameters: params).responseJSON { (response) in
-            guard let json = response.value else { return }
+        NetworkManager.sessionAF.request(baseURL + path, method: .get, parameters: params).responseData { response in
+            guard let data = response.value else { return }
             
-            print(json)
+            let users = try! JSONDecoder().decode(UserResponse.self, from: data).response.items
+            
+            completion(users)
+                   
         }
     }
     
-    static func loadUserPhotos(token: String) {
+    static func loadUserPhotos(token: String, userID: Double, completion: @escaping ([PhotoSizes]) -> Void) {
         let baseURL = "https://api.vk.com"
         let path = "/method/photos.getAll"
         
         let params: Parameters = [
             "access_token": token,
-            "extended": 1,
+            "owner_id": userID,
+//            "extended": 1,
             "v": "5.92"
         ]
         
-        NetworkManager.sessionAF.request(baseURL + path, method: .get, parameters: params).responseJSON { (response) in
-            guard let json = response.value else { return }
+        NetworkManager.sessionAF.request(baseURL + path, method: .get, parameters: params).responseData { response in
+            guard let data = response.value else { return }
             
-            print(json)
+            let photos = try! JSONDecoder().decode(PhotoResponse.self, from: data).response.items
+            
+            completion(photos)
+            
         }
     }
 }

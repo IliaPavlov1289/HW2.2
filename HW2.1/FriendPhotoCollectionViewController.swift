@@ -9,12 +9,29 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-class FriendFotoCollectionViewController: UICollectionViewController {
+class FriendPhotoCollectionViewController: UICollectionViewController {
     
-    let fotos = ["friendFoto1", "Учёный", "friendFoto1", "Учёный", "friendFoto1", "friendFoto1", "friendFoto1", "friendFoto1", "friendFoto1", "friendFoto1", "friendFoto1", "friendFoto1", "friendFoto1", "friendFoto1", "friendFoto1", "friendFoto1"]
+    var userID = 0.0
+    
+    var photos: [PhotoSizes]? = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(userID)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let token = Session.shared.token
+        
+        NetworkManager.loadUserPhotos(token: token, userID: userID) { [weak self] (Photos) in
+
+            self?.photos = Photos
+            
+            self?.collectionView.reloadData()
+        }
+
     }
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -22,13 +39,14 @@ class FriendFotoCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return fotos.count
+        return photos?.count ?? 0
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? FriendFotoCollectionViewCell{
-            cell.friendFotoImage.image = UIImage(named:fotos[indexPath.row])
+            cell.downLoadImage(from: photos?[indexPath.row].sizes[0].photoUrl ?? "")
             return cell
+            
         }
     
         return UICollectionViewCell()
@@ -39,12 +57,13 @@ class FriendFotoCollectionViewController: UICollectionViewController {
     {
         if let indexPath = self.collectionView?.indexPath(for: sender as! UICollectionViewCell) {
             if segue.identifier == "showPhoto"{
-                    
+
                 let previewPhoto: PreviewPhotoViewController = segue.destination as! PreviewPhotoViewController
-                    
-                previewPhoto.currentPhoto = UIImage(named:fotos[indexPath.row])
+
                 previewPhoto.indexPhoto = indexPath.row
+                previewPhoto.photos = self.photos ?? []
             }
         }
     }
+
 }

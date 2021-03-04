@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import RealmSwift
 
-class Photo: Decodable {
-    var photoUrl = ""
+class Photo: Object, Decodable {
+    @objc dynamic var photoUrl = ""
     
     enum CodingKeys: String, CodingKey {
         case photoUrl = "url"

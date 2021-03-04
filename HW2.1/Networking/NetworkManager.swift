@@ -7,6 +7,7 @@
 
 import Foundation
 import Alamofire
+import RealmSwift
 
 
 class NetworkManager {
@@ -61,6 +62,17 @@ class NetworkManager {
         }
     }
 
+    static func saveUserData(_ users: [User]) {
+        do {
+            let realm = try Realm()
+            realm.beginWrite()
+            realm.add(users)
+            try realm.commitWrite()
+        } catch {
+            print(error)
+        }
+    }
+    
     static func loadUserFriends(token: String, completion: @escaping ([User]) -> Void) {
         let baseURL = "https://api.vk.com"
         let path = "/method/friends.get"
@@ -74,6 +86,8 @@ class NetworkManager {
             guard let data = response.value else { return }
             
             let users = try! JSONDecoder().decode(UserResponse.self, from: data).response.items
+            
+            self.saveUserData(users)
             
             completion(users)
                    

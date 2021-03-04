@@ -6,13 +6,14 @@
 //
 
 import Foundation
+import RealmSwift
 
 
-class User: Decodable {
-    var userID = 0.0
-    var userName = ""
-    var userLastName = ""
-    var userIcon = ""
+class User: Object, Decodable {
+    @objc dynamic var userID = 0.0
+    @objc dynamic var userName = ""
+    @objc dynamic var userLastName = ""
+    @objc dynamic var userIcon = ""
     
     enum CodingKeys: String, CodingKey {
         case userID = "id"

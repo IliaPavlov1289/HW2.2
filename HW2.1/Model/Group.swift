@@ -6,11 +6,12 @@
 //
 
 import Foundation
+import RealmSwift
 
-class Group: Decodable {
-    var groupID = 0.0
-    var groupName = ""
-    var groupIcon = ""
+class Group: Object, Decodable {
+    @objc dynamic var groupID = 0.0
+    @objc dynamic var groupName = ""
+    @objc dynamic var groupIcon = ""
     
     enum CodingKeys: String, CodingKey {
         case groupID = "id"

@@ -13,7 +13,7 @@ class VKTableViewCell: UITableViewCell {
     @IBOutlet weak var cellVKLabel: UILabel!
     @IBOutlet weak var cellVKImageContainer: UIView!
     
-    var cellId = 0.0
+    var cellId = 0
     
 //    override func prepareForReuse() {
 //        groupLabel.text = ""

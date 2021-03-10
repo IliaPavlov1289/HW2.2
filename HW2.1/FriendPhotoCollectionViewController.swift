@@ -11,7 +11,7 @@ private let reuseIdentifier = "Cell"
 
 class FriendPhotoCollectionViewController: UICollectionViewController {
     
-    var userID = 0.0
+    var userID = 0
     
     var photos: [PhotoSizes]? = []
 

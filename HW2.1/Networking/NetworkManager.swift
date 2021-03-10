@@ -94,7 +94,7 @@ class NetworkManager {
         }
     }
     
-    static func loadUserPhotos(token: String, userID: Double, completion: @escaping ([PhotoSizes]) -> Void) {
+    static func loadUserPhotos(token: String, userID: Int, completion: @escaping ([PhotoSizes]) -> Void) {
         let baseURL = "https://api.vk.com"
         let path = "/method/photos.getAll"
         

@@ -10,10 +10,14 @@ import RealmSwift
 
 
 class User: Object, Decodable {
-    @objc dynamic var userID = 0.0
+    @objc dynamic var userID = 0
     @objc dynamic var userName = ""
     @objc dynamic var userLastName = ""
     @objc dynamic var userIcon = ""
+    
+    override class func primaryKey() -> String? {
+        "userID"
+    }
     
     enum CodingKeys: String, CodingKey {
         case userID = "id"
@@ -25,7 +29,7 @@ class User: Object, Decodable {
     convenience required init(from decoder: Decoder) throws {
         self.init()
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        self.userID = try values.decode(Double.self, forKey: .userID)
+        self.userID = try values.decode(Int.self, forKey: .userID)
         self.userName = try values.decode(String.self, forKey: .userName)
         self.userLastName = try values.decode(String.self, forKey: .userLastName)
         self.userIcon = try values.decode(String.self, forKey: .userIcon)

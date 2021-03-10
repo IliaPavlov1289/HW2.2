@@ -17,6 +17,7 @@
 		C91474CF25BA054A0026A1BD /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91474CD25BA054A0026A1BD /* NewsTableViewCell.swift */; };
 		C91474D025BA054A0026A1BD /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C91474CE25BA054A0026A1BD /* NewsTableViewCell.xib */; };
 		C91474D525BA18590026A1BD /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91474D425BA18590026A1BD /* News.swift */; };
+		C91FD09825F6571400F8AF41 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91FD09725F6571400F8AF41 /* RealmManager.swift */; };
 		C92441B6258F9B2B00A95FA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92441B5258F9B2B00A95FA2 /* AppDelegate.swift */; };
 		C92441B8258F9B2B00A95FA2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92441B7258F9B2B00A95FA2 /* SceneDelegate.swift */; };
 		C92441BA258F9B2B00A95FA2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92441B9258F9B2B00A95FA2 /* LoginViewController.swift */; };
@@ -62,6 +63,7 @@
 		C91474CD25BA054A0026A1BD /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		C91474CE25BA054A0026A1BD /* NewsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
 		C91474D425BA18590026A1BD /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		C91FD09725F6571400F8AF41 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		C92441B2258F9B2B00A95FA2 /* HW2.1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HW2.1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C92441B5258F9B2B00A95FA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C92441B7258F9B2B00A95FA2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -147,6 +149,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		C91FD09625F656E300F8AF41 /* RealmManager */ = {
+			isa = PBXGroup;
+			children = (
+				C91FD09725F6571400F8AF41 /* RealmManager.swift */,
+			);
+			path = RealmManager;
+			sourceTree = "<group>";
+		};
 		C92441A9258F9B2B00A95FA2 = {
 			isa = PBXGroup;
 			children = (
@@ -168,6 +178,7 @@
 		C92441B4258F9B2B00A95FA2 /* HW2.1 */ = {
 			isa = PBXGroup;
 			children = (
+				C91FD09625F656E300F8AF41 /* RealmManager */,
 				C93FCA8625CEF08E0022EA8E /* Networking */,
 				C9052E5C25CC7A43006417CA /* Helpers */,
 				C945811B25BDABCB0058D1DF /* CommonControls */,
@@ -378,6 +389,7 @@
 				C9E8C29B25A7190D00E0E75B /* VKTableViewCell.swift in Sources */,
 				C91474CF25BA054A0026A1BD /* NewsTableViewCell.swift in Sources */,
 				C945812325BDAD190058D1DF /* ViewControl.swift in Sources */,
+				C91FD09825F6571400F8AF41 /* RealmManager.swift in Sources */,
 				C9113BA725CEB3B0003E7363 /* CustomPopAnimator.swift in Sources */,
 				C9DBAD7525C6BC9500BBC551 /* PreviewPhotoViewController.swift in Sources */,
 				C9F3F23725C46DB1002D4AED /* IconAction.swift in Sources */,

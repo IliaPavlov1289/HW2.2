@@ -26,25 +26,6 @@ class NetworkManager {
     
     }
     
-    static func loadUserGroups(token: String, completion: @escaping ([Group]) -> Void) {
-        let baseURL = "https://api.vk.com"
-        let path = "/method/groups.get"
-
-        let params: Parameters = [
-            "access_token": token,
-            "extended": 1,
-            "v": "5.92"
-        ]
-
-        NetworkManager.sessionAF.request(baseURL + path, method: .get, parameters: params).responseData { response in
-            guard let data = response.value else {return}
-
-            let groups = try! JSONDecoder().decode(GroupResponse.self, from: data).response.items
-            
-            completion(groups)
-        }
-    }
-    
     static func loadSearchGroups(token: String,searchText: String ) {
         let baseURL = "https://api.vk.com"
         let path = "/method/groups.search"
@@ -62,14 +43,37 @@ class NetworkManager {
         }
     }
 
-    static func saveUserData(_ users: [User]) {
+    static func saveData<T: Object>(_ data: [T]) {
         do {
             let realm = try Realm()
+            let oldDate = realm.objects(T.self)
             realm.beginWrite()
-            realm.add(users)
+            realm.delete(oldDate)
+            realm.add(data)
             try realm.commitWrite()
         } catch {
             print(error)
+        }
+    }
+    
+    static func loadUserGroups(token: String, completion: @escaping ([Group]) -> Void) {
+        let baseURL = "https://api.vk.com"
+        let path = "/method/groups.get"
+
+        let params: Parameters = [
+            "access_token": token,
+            "extended": 1,
+            "v": "5.92"
+        ]
+
+        NetworkManager.sessionAF.request(baseURL + path, method: .get, parameters: params).responseData { response in
+            guard let data = response.value else {return}
+
+            let groups = try! JSONDecoder().decode(GroupResponse.self, from: data).response.items
+            
+            self.saveData(groups)
+            
+            completion(groups)
         }
     }
     
@@ -87,7 +91,7 @@ class NetworkManager {
             
             let users = try! JSONDecoder().decode(UserResponse.self, from: data).response.items
             
-            self.saveUserData(users)
+            self.saveData(users)
             
             completion(users)
                    
@@ -109,6 +113,8 @@ class NetworkManager {
             guard let data = response.value else { return }
             
             let photos = try! JSONDecoder().decode(PhotoResponse.self, from: data).response.items
+            
+            self.saveData(photos)
             
             completion(photos)
             

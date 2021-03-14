@@ -9,9 +9,13 @@ import Foundation
 import RealmSwift
 
 class Group: Object, Decodable {
-    @objc dynamic var groupID = 0.0
+    @objc dynamic var groupID = 0
     @objc dynamic var groupName = ""
     @objc dynamic var groupIcon = ""
+    
+    override class func primaryKey() -> String? {
+        "groupID"
+    }
     
     enum CodingKeys: String, CodingKey {
         case groupID = "id"
@@ -22,7 +26,7 @@ class Group: Object, Decodable {
     convenience required init(from decoder: Decoder) throws {
         self.init()
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        self.groupID = try values.decode(Double.self, forKey: .groupID)
+        self.groupID = try values.decode(Int.self, forKey: .groupID)
         self.groupName = try values.decode(String.self, forKey: .groupName)
         self.groupIcon = try values.decode(String.self, forKey: .groupIcon)
     }

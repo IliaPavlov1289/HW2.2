@@ -22,8 +22,13 @@ class Photo: Object, Decodable {
     }
 }
 
-class PhotoSizes: Decodable {
-    let sizes: [Photo]
+class PhotoSizes: Object, Decodable {
+    @objc dynamic var id = 0
+    var sizes = List<Photo>()
+
+    override class func primaryKey() -> String? {
+        "id"
+    }
 }
 
 class PhotoList: Decodable {

@@ -13,14 +13,14 @@ class FriendTableViewController: UITableViewController {
     var sections:[String] = []
 
     var friends: [User]? {
-        let friends: Results<User>? = RealmManager.shared?.getObjects()
-        return Array(friends!)
+        guard let friends: Results<User> = RealmManager.shared?.getObjects()
+        else { return [] }
+        return Array(friends)
     }
     
     
     var filteredFriends:[User]? = []
     
-    //var filteredFriends: Results<User>? { return friends }
         
     override func viewDidLoad() {
         super.viewDidLoad()

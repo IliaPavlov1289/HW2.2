@@ -7,24 +7,46 @@
 
 import UIKit
 import RealmSwift
+import FirebaseDatabase
 
 class FriendTableViewController: UITableViewController {
+    
+    let userRef = Database.database().reference(withPath: "users")
 
     var sections:[String] = []
 
-    var friends: [User]? {
-        guard let friends: Results<User> = RealmManager.shared?.getObjects()
-        else { return [] }
-        return Array(friends)
-    }
+    var friends = [FirebaseUser]()
     
     
-    var filteredFriends:[User]? = []
+    var filteredFriends:[FirebaseUser] = []
     
         
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        userRef.observe(.value) { [weak self] (snapshot) in
+            self?.friends.removeAll()
+            
+            let token = Session.shared.token
+            
+            guard !snapshot.children.allObjects.isEmpty else {
+                NetworkManager.loadUserFriends(token: token) { [weak self] (Users) in
+                    self?.tableView.reloadData()
+                }
+                return
+            }
+            for child in snapshot.children {
+                guard let child = child as? DataSnapshot, let user = FirebaseUser(snapshot: child) else {
+                    continue
+                }
+                self?.friends.append(user)
+
+            }
+            self?.filteredFriends = self?.friends ?? []
+            self?.tableView.reloadData()
+            print(self?.filteredFriends[0].userID)
+        }
+        
         tableView.register(UINib(nibName: "VKTableViewCell", bundle: nil), forCellReuseIdentifier: "VKCell")
 
 
@@ -43,25 +65,17 @@ class FriendTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let token = Session.shared.token
-        
-        NetworkManager.loadUserFriends(token: token) { [weak self] (Users) in
-            
-//            self?.friends = Users
-            
-            try? RealmManager.shared?.add(objects: Users)
-            self?.filteredFriends = self?.friends ?? []
-            self?.sections = self?.createHeaderSections() ?? []
-            
-            self?.tableView.reloadData()
-        }
+
+
+        self.sections = self.createHeaderSections()
+
 
     }
     
     func createHeaderSections() -> [String] {
         var sections:[String] = []
         
-        for friend in filteredFriends ?? [] {
+        for friend in filteredFriends {
             let firstSymbol = friend.userName.prefix(1)
             if sections.contains(String(firstSymbol)) { continue }
             sections.append(String(firstSymbol))
@@ -86,16 +100,16 @@ class FriendTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let friendsInSection = filteredFriends?.filter{$0.userName.prefix(1) == sections[section]}
-        return friendsInSection?.count ?? 0
+        let friendsInSection = filteredFriends.filter{$0.userName.prefix(1) == sections[section]}
+        return friendsInSection.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "VKCell", for: indexPath) as? VKTableViewCell{
-            let friendsInSection = filteredFriends?.filter{$0.userName.prefix(1) == sections[indexPath.section]}
-            cell.cellId = friendsInSection?[indexPath.row].userID ?? 0
-            cell.cellVKLabel.text = (friendsInSection?[indexPath.row].userName ?? "") + " " + (friendsInSection?[indexPath.row].userLastName ?? "")
-            cell.downLoadImage(from: friendsInSection?[indexPath.row].userIcon ?? "")
+            let friendsInSection = filteredFriends.filter{$0.userName.prefix(1) == sections[indexPath.section]}
+            cell.cellId = friendsInSection[indexPath.row].userID
+            cell.cellVKLabel.text = (friendsInSection[indexPath.row].userName) + " " + (friendsInSection[indexPath.row].userLastName)
+            cell.downLoadImage(from: friendsInSection[indexPath.row].userIcon)
 
 
             return cell
@@ -134,9 +148,9 @@ extension FriendTableViewController: UISearchBarDelegate {
             if searchText == "" {
                 filteredFriends = friends
             } else {
-                filteredFriends? = friends?.filter { (friend) -> Bool in
+                filteredFriends = friends.filter { (friend) -> Bool in
             return friend.userName.contains(searchText)
-                } ?? []
+                }
        }
         sections = createHeaderSections()
 

@@ -10,4 +10,9 @@ target 'HW2.1' do
 pod 'Alamofire', '~> 5.2'
 pod 'RealmSwift'
 
+pod 'Firebase/Core'
+pod 'Firebase/Database'
+pod 'Firebase/Auth'
+pod 'Firebase/Firestore'
+
 end

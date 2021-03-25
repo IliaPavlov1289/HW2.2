@@ -32,6 +32,8 @@
 		C945812025BDACFC0058D1DF /* RepostControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C945811F25BDACFB0058D1DF /* RepostControl.swift */; };
 		C945812325BDAD190058D1DF /* ViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C945812225BDAD190058D1DF /* ViewControl.swift */; };
 		C993571125A5D70200C1D851 /* GroupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C993571025A5D70200C1D851 /* GroupTableViewController.swift */; };
+		C997131E26077FC9001506C2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C997131D26077FC9001506C2 /* GoogleService-Info.plist */; };
+		C9B84DF226091B6400D6EF6B /* FirebaseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B84DF126091B6400D6EF6B /* FirebaseUser.swift */; };
 		C9B966B825D46AE900236C49 /* VkLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B966B725D46AE900236C49 /* VkLoginViewController.swift */; };
 		C9B966BB25D4818C00236C49 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B966BA25D4818C00236C49 /* NetworkManager.swift */; };
 		C9B966BF25D484A900236C49 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9B966BE25D484A900236C49 /* WebKit.framework */; };
@@ -80,6 +82,8 @@
 		C945811F25BDACFB0058D1DF /* RepostControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepostControl.swift; sourceTree = "<group>"; };
 		C945812225BDAD190058D1DF /* ViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControl.swift; sourceTree = "<group>"; };
 		C993571025A5D70200C1D851 /* GroupTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTableViewController.swift; sourceTree = "<group>"; };
+		C997131D26077FC9001506C2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C9B84DF126091B6400D6EF6B /* FirebaseUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUser.swift; sourceTree = "<group>"; };
 		C9B966B725D46AE900236C49 /* VkLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VkLoginViewController.swift; sourceTree = "<group>"; };
 		C9B966BA25D4818C00236C49 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		C9B966BE25D484A900236C49 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -145,6 +149,7 @@
 				C90783AD25AA152800894143 /* Group.swift */,
 				C91474D425BA18590026A1BD /* News.swift */,
 				C900A0BD25EBDF6300FDABE8 /* Photo.swift */,
+				C9B84DF126091B6400D6EF6B /* FirebaseUser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -192,6 +197,7 @@
 				C92441BB258F9B2B00A95FA2 /* Main.storyboard */,
 				C92441BE258F9B2C00A95FA2 /* Assets.xcassets */,
 				C92441C0258F9B2C00A95FA2 /* LaunchScreen.storyboard */,
+				C997131D26077FC9001506C2 /* GoogleService-Info.plist */,
 				C92441C3258F9B2C00A95FA2 /* Info.plist */,
 				C993571025A5D70200C1D851 /* GroupTableViewController.swift */,
 				C9E8C29D25A7893000E0E75B /* MyGroupTableViewController.swift */,
@@ -312,6 +318,7 @@
 				C92441C2258F9B2C00A95FA2 /* LaunchScreen.storyboard in Resources */,
 				C92441BF258F9B2C00A95FA2 /* Assets.xcassets in Resources */,
 				C91474D025BA054A0026A1BD /* NewsTableViewCell.xib in Resources */,
+				C997131E26077FC9001506C2 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,6 +403,7 @@
 				C942607325CECC650009F91A /* MyInteractiveTransition.swift in Sources */,
 				C91474D525BA18590026A1BD /* News.swift in Sources */,
 				C9BEF99125A8A40900BA3C00 /* FriendFotoCollectionViewCell.swift in Sources */,
+				C9B84DF226091B6400D6EF6B /* FirebaseUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

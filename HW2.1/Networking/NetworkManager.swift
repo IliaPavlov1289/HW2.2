@@ -8,10 +8,12 @@
 import Foundation
 import Alamofire
 import RealmSwift
-
+import FirebaseDatabase
 
 class NetworkManager {
-
+    
+    static let userRef = Database.database().reference(withPath: "users")
+    
     private static let sessionAF: Alamofire.Session = {
         let configuration = URLSessionConfiguration.default
         configuration.allowsCellularAccess = false
@@ -90,6 +92,14 @@ class NetworkManager {
             guard let data = response.value else { return }
             
             let users = try! JSONDecoder().decode(UserResponse.self, from: data).response.items
+            
+            let firebaseFriends = users.map { FirebaseUser(fromUser: $0) }
+            
+            for user in firebaseFriends {
+                self.userRef.child("\(user.userID)").setValue(user.toAnyObject())
+
+                
+            }
             
             self.saveData(users)
             

@@ -6,13 +6,62 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
+    
+    static let segueIdentifire = "loginSegue"
 
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var paswordTextField: UITextField!
+    
+    private var listener: AuthStateDidChangeListenerHandle?
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        listener = Auth.auth().addStateDidChangeListener{ [weak self] (auth, user) in
+            guard user != nil else { return }
+            
+            self?.loginTextField.text = ""
+            self?.paswordTextField.text = ""
+            
+            self?.performSegue(withIdentifier: LoginViewController.segueIdentifire, sender: nil)
+        }
+        
+    }
+    
+    
+    @IBAction func loginButtonDidTap(_ sender: UIButton) {
+        guard let email = loginTextField.text,
+              let password = paswordTextField.text else {
+            return
+        }
+        
+        Auth.auth().signIn(withEmail: email, password: password) { [weak self] (result, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+        
+    }
+    
+    @IBAction func registerButtonDidTab(_ sender: UIButton) {
+        guard let email = loginTextField.text,
+              let password = paswordTextField.text else {
+            return
+        }
+            
+            Auth.auth().createUser(withEmail: email, password: password) { [weak self] (result, error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                }
+        }
+    }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

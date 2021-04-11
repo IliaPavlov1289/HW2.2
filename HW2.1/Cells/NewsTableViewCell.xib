@@ -13,11 +13,11 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="news" rowHeight="595" id="KGk-i7-Jjw" customClass="NewsTableViewCell" customModule="HW2_1" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="595"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="414" height="595"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lj4-gM-6UV">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lj4-gM-6UV">
                         <rect key="frame" x="0.0" y="120" width="401.5" height="401.5"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="lj4-gM-6UV" secondAttribute="height" multiplier="1:1" id="pCF-c9-hLt"/>
@@ -55,7 +55,7 @@
                             </label>
                         </subviews>
                     </stackView>
-                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="VoG-Rg-1Uq">
+                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="VoG-Rg-1Uq">
                         <rect key="frame" x="5" y="526.5" width="401.5" height="20"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dem-Ec-z7e" customClass="LikeControl" customModule="HW2_1" customModuleProvider="target">
@@ -91,10 +91,10 @@
                             <constraint firstAttribute="trailing" secondItem="szl-2C-V0M" secondAttribute="trailing" id="FDg-mb-xFK"/>
                         </constraints>
                     </stackView>
-                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ycD-mA-GOc">
+                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ycD-mA-GOc">
                         <rect key="frame" x="0.0" y="60" width="414" height="60"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AQX-eF-LZu">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AQX-eF-LZu">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="240"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nL2-11-RnA">
@@ -152,6 +152,7 @@
                 <outlet property="senderIconImage" destination="u2j-YW-d1U" id="u3M-OO-bTG"/>
                 <outlet property="senderIconImageContainer" destination="hc1-Mw-Tbj" id="Y1Z-gf-8iq"/>
                 <outlet property="senderNameLabel" destination="1wS-i2-uky" id="rPW-lH-2xD"/>
+                <outlet property="viewsControl" destination="szl-2C-V0M" id="1Kf-ap-AdO"/>
             </connections>
             <point key="canvasLocation" x="-739.13043478260875" y="286.94196428571428"/>
         </tableViewCell>

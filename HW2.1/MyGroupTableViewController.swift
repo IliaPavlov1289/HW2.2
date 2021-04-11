@@ -15,6 +15,7 @@ class MyGroupTableViewController: UITableViewController {
         return groups
     }
 
+    var text = ""
     
     var filteredGroups: Results<Group>? {
         return groups

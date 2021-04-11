@@ -120,4 +120,30 @@ class NetworkManager {
             
         }
     }
+    
+    static func loadNewsPost(token: String, completion: @escaping ([NewsPost], [User], [Group]) -> Void) {
+        let baseURL = "https://api.vk.com"
+        let path = "/method/newsfeed.get"
+        
+        let params: Parameters = [
+            "access_token": token,
+            "filters": "post",
+            "count": 5,
+            "v": "5.111"
+        ]
+        
+        NetworkManager.sessionAF.request(baseURL + path, method: .get, parameters: params).responseData { response in
+            guard let data = response.value else { return }
+            
+            let news = try! JSONDecoder().decode(NewsResponse.self, from: data).response.items
+            
+            let users = try! JSONDecoder().decode(NewsResponse.self, from: data).response.profiles
+            
+            let groups = try! JSONDecoder().decode(NewsResponse.self, from: data).response.groups
+            
+            completion(news, users, groups)
+            
+        }
+    }
+    
 }

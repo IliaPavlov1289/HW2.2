@@ -13,6 +13,7 @@
 		C90783AB25AA151300894143 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90783AA25AA151300894143 /* User.swift */; };
 		C90783AE25AA152800894143 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90783AD25AA152800894143 /* Group.swift */; };
 		C9113BA725CEB3B0003E7363 /* CustomPopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9113BA625CEB3B0003E7363 /* CustomPopAnimator.swift */; };
+		C911C113261DF4CD007F15D6 /* NewsPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = C911C112261DF4CD007F15D6 /* NewsPost.swift */; };
 		C91474C825B9FEF00026A1BD /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91474C725B9FEF00026A1BD /* NewsTableViewController.swift */; };
 		C91474CF25BA054A0026A1BD /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91474CD25BA054A0026A1BD /* NewsTableViewCell.swift */; };
 		C91474D025BA054A0026A1BD /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C91474CE25BA054A0026A1BD /* NewsTableViewCell.xib */; };
@@ -45,6 +46,7 @@
 		C9E8C29B25A7190D00E0E75B /* VKTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E8C29A25A7190D00E0E75B /* VKTableViewCell.swift */; };
 		C9E8C29E25A7893000E0E75B /* MyGroupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E8C29D25A7893000E0E75B /* MyGroupTableViewController.swift */; };
 		C9EBFA8F25E52DF900E88FCD /* VKTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9EBFA8D25E52DF900E88FCD /* VKTableViewCell.xib */; };
+		C9EEE0C9261F8BFB0041CEE3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EEE0C8261F8BFB0041CEE3 /* Extensions.swift */; };
 		C9F3F23725C46DB1002D4AED /* IconAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F3F23625C46DB1002D4AED /* IconAction.swift */; };
 		CB0E6B46E3A304573C33E04F /* Pods_HW2_1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75AFA8681531A493D25677EC /* Pods_HW2_1.framework */; };
 /* End PBXBuildFile section */
@@ -59,6 +61,7 @@
 		C90783AA25AA151300894143 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C90783AD25AA152800894143 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		C9113BA625CEB3B0003E7363 /* CustomPopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopAnimator.swift; sourceTree = "<group>"; };
+		C911C112261DF4CD007F15D6 /* NewsPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPost.swift; sourceTree = "<group>"; };
 		C91474C725B9FEF00026A1BD /* NewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
 		C91474CD25BA054A0026A1BD /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		C91474CE25BA054A0026A1BD /* NewsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
@@ -93,6 +96,7 @@
 		C9E8C29A25A7190D00E0E75B /* VKTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKTableViewCell.swift; sourceTree = "<group>"; };
 		C9E8C29D25A7893000E0E75B /* MyGroupTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupTableViewController.swift; sourceTree = "<group>"; };
 		C9EBFA8D25E52DF900E88FCD /* VKTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VKTableViewCell.xib; sourceTree = "<group>"; };
+		C9EEE0C8261F8BFB0041CEE3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C9F3F23625C46DB1002D4AED /* IconAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconAction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -134,6 +138,7 @@
 				C9052E6025CC7ED5006417CA /* CustomPushAnimator.swift */,
 				C9113BA625CEB3B0003E7363 /* CustomPopAnimator.swift */,
 				C942607225CECC650009F91A /* MyInteractiveTransition.swift */,
+				C9EEE0C8261F8BFB0041CEE3 /* Extensions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -145,6 +150,7 @@
 				C90783AD25AA152800894143 /* Group.swift */,
 				C91474D425BA18590026A1BD /* News.swift */,
 				C900A0BD25EBDF6300FDABE8 /* Photo.swift */,
+				C911C112261DF4CD007F15D6 /* NewsPost.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -189,8 +195,8 @@
 				C92441B7258F9B2B00A95FA2 /* SceneDelegate.swift */,
 				C92441B9258F9B2B00A95FA2 /* LoginViewController.swift */,
 				C9D49E7B25C1FFE7006FB067 /* LoaderViewController.swift */,
-				C92441BB258F9B2B00A95FA2 /* Main.storyboard */,
 				C92441BE258F9B2C00A95FA2 /* Assets.xcassets */,
+				C92441BB258F9B2B00A95FA2 /* Main.storyboard */,
 				C92441C0258F9B2C00A95FA2 /* LaunchScreen.storyboard */,
 				C92441C3258F9B2C00A95FA2 /* Info.plist */,
 				C993571025A5D70200C1D851 /* GroupTableViewController.swift */,
@@ -375,6 +381,7 @@
 				C900A0BE25EBDF6300FDABE8 /* Photo.swift in Sources */,
 				C9BEF98E25A89C0A00BA3C00 /* FriendPhotoCollectionViewController.swift in Sources */,
 				C90783AE25AA152800894143 /* Group.swift in Sources */,
+				C911C113261DF4CD007F15D6 /* NewsPost.swift in Sources */,
 				C92441B6258F9B2B00A95FA2 /* AppDelegate.swift in Sources */,
 				C9B966B825D46AE900236C49 /* VkLoginViewController.swift in Sources */,
 				C92441B8258F9B2B00A95FA2 /* SceneDelegate.swift in Sources */,
@@ -394,6 +401,7 @@
 				C9DBAD7525C6BC9500BBC551 /* PreviewPhotoViewController.swift in Sources */,
 				C9F3F23725C46DB1002D4AED /* IconAction.swift in Sources */,
 				C942607325CECC650009F91A /* MyInteractiveTransition.swift in Sources */,
+				C9EEE0C9261F8BFB0041CEE3 /* Extensions.swift in Sources */,
 				C91474D525BA18590026A1BD /* News.swift in Sources */,
 				C9BEF99125A8A40900BA3C00 /* FriendFotoCollectionViewCell.swift in Sources */,
 			);

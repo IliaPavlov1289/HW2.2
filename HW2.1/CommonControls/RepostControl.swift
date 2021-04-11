@@ -8,22 +8,27 @@
 import UIKit
 
 class RepostControl: UIControl {
+    
+    var repostButton = UIButton(type: .custom)
       
-    var countRepost: Int = 0
+    var countRepost: Int = 0 {
+        didSet {
+            setCount()
+        }
+    }
     var isReposted: Bool = false
  
     override init(frame: CGRect) {
         super.init(frame: frame)
-        repostButton()
+        setupButton()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        repostButton()
+        setupButton()
     }
     
-    private func repostButton(){
-        let repostButton = UIButton(type: .custom)
+    private func setupButton(){
         repostButton.setImage(UIImage(systemName: "arrowshape.turn.up.right"), for: .normal)
         repostButton.setTitle("\(countRepost)", for: .normal)
         repostButton.setTitleColor(.black, for: .normal)
@@ -46,4 +51,9 @@ class RepostControl: UIControl {
             sender.setImage(UIImage(systemName: "arrowshape.turn.up.right"), for: .normal)
         }
     }
+    
+    private func setCount() {
+        repostButton.setTitle("\(countRepost)", for: .normal)
+    }
+    
 }

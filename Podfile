@@ -8,5 +8,6 @@ target 'HW2.1' do
   # Pods for HW2.1
 
 pod 'Alamofire', '~> 5.2'
+pod 'RealmSwift'
 
 end

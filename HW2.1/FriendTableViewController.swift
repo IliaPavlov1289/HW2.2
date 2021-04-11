@@ -6,14 +6,22 @@
 //
 
 import UIKit
+import RealmSwift
 
 class FriendTableViewController: UITableViewController {
 
     var sections:[String] = []
 
-    var friends: [User]?
+    var friends: [User]? {
+        guard let friends: Results<User> = RealmManager.shared?.getObjects()
+        else { return [] }
+        return Array(friends)
+    }
+    
+    
     var filteredFriends:[User]? = []
-
+    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -39,7 +47,9 @@ class FriendTableViewController: UITableViewController {
         
         NetworkManager.loadUserFriends(token: token) { [weak self] (Users) in
             
-            self?.friends = Users
+//            self?.friends = Users
+            
+            try? RealmManager.shared?.add(objects: Users)
             self?.filteredFriends = self?.friends ?? []
             self?.sections = self?.createHeaderSections() ?? []
             
@@ -50,11 +60,14 @@ class FriendTableViewController: UITableViewController {
     
     func createHeaderSections() -> [String] {
         var sections:[String] = []
+        
         for friend in filteredFriends ?? [] {
             let firstSymbol = friend.userName.prefix(1)
             if sections.contains(String(firstSymbol)) { continue }
             sections.append(String(firstSymbol))
         }
+
+
         sections.sort(by: <)
         return sections
     }
@@ -80,7 +93,7 @@ class FriendTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "VKCell", for: indexPath) as? VKTableViewCell{
             let friendsInSection = filteredFriends?.filter{$0.userName.prefix(1) == sections[indexPath.section]}
-            cell.cellId = friendsInSection?[indexPath.row].userID ?? 0.0
+            cell.cellId = friendsInSection?[indexPath.row].userID ?? 0
             cell.cellVKLabel.text = (friendsInSection?[indexPath.row].userName ?? "") + " " + (friendsInSection?[indexPath.row].userLastName ?? "")
             cell.downLoadImage(from: friendsInSection?[indexPath.row].userIcon ?? "")
 
@@ -102,7 +115,7 @@ class FriendTableViewController: UITableViewController {
 
                 let friendPhotoCollection: FriendPhotoCollectionViewController = segue.destination as! FriendPhotoCollectionViewController
 
-                    friendPhotoCollection.userID = cell?.cellId ?? 0.0
+                    friendPhotoCollection.userID = cell?.cellId ?? 0
 
             }
         }
@@ -121,9 +134,9 @@ extension FriendTableViewController: UISearchBarDelegate {
             if searchText == "" {
                 filteredFriends = friends
             } else {
-            filteredFriends? = friends?.filter { (friend) -> Bool in
+                filteredFriends? = friends?.filter { (friend) -> Bool in
             return friend.userName.contains(searchText)
-            } ?? []
+                } ?? []
        }
         sections = createHeaderSections()
 

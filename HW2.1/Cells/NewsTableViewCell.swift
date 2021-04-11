@@ -18,11 +18,11 @@ class NewsTableViewCell: UITableViewCell {
     @IBOutlet weak var senderNameLabel: UILabel!    
     @IBOutlet weak var newsTextLabel: UILabel!
     @IBOutlet weak var newsImage: UIImageView!
-    @IBOutlet weak var likeControl: UIView!
-    @IBOutlet weak var commentControl: UIView!
-    @IBOutlet weak var repostControl: UIView!
+    @IBOutlet weak var likeControl: LikeControl!
+    @IBOutlet weak var commentControl: CommentsControl!
+    @IBOutlet weak var repostControl: RepostControl!
+    @IBOutlet weak var viewsControl: ViewControl!
     
-    
-    
-    
+    override class func awakeFromNib() {
+    }
 }

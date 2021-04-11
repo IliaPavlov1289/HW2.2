@@ -6,14 +6,27 @@
 //
 
 import UIKit
+import RealmSwift
 
 class MyGroupTableViewController: UITableViewController {
     
-    var groups: [Group]?
-    var filteredGroups: [Group]? = []
+    var groups: Results<Group>? {
+        let groups: Results<Group>? = RealmManager.shared?.getObjects()
+        return groups
+    }
+
+    var text = ""
+    
+    var filteredGroups: Results<Group>? {
+        return groups
+    }
+    
+    private var filteredGroupsNotificationToken: NotificationToken?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        createFiltredNitificationToken()
 
         tableView.register(UINib(nibName: "VKTableViewCell", bundle: nil), forCellReuseIdentifier: "VKCell")
     
@@ -24,21 +37,56 @@ class MyGroupTableViewController: UITableViewController {
                 tableView.tableHeaderView = header
                 header.searchBar.delegate = self
             }
+        
+            
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         let token = Session.shared.token
-        
+
         NetworkManager.loadUserGroups(token: token) { [weak self] (Groups) in
+            print("11111111111111111111111111111")
 
-            self?.groups = Groups
-            self?.filteredGroups = self?.groups ?? []
-            
-            self?.tableView.reloadData()
+//            self?.groups = Groups
+            try? RealmManager.shared?.add(objects: Groups)
+//            self?.filteredGroups = self?.groups
+
+//            self?.tableView.reloadData()
         }
-
+    }
+    
+    private func createFiltredNitificationToken() {
+        filteredGroupsNotificationToken = filteredGroups?.observe { [weak self] change in
+            switch change {
+            case .initial(let groups):
+                print("Initialize \(groups.count)")
+                break
+            case .update(let groups, deletions: let deletions, insertions: let insertions, modifications: let modifications):
+                print("""
+                    New count \(groups.count)
+                    Deletions \(deletions)
+                    Insertions \(insertions)
+                    Modifications \(modifications)
+                    """
+                    )
+                
+                self?.tableView.beginUpdates()
+                
+                let deletionIndexPaths = deletions.map { IndexPath(item: $0, section: 0) }
+                let insertionsIndexPaths = insertions.map { IndexPath(item: $0, section: 0) }
+                let modificationsIndexPaths = modifications.map { IndexPath(item: $0, section: 0) }
+                
+                self?.tableView.deleteRows(at: deletionIndexPaths, with: .automatic)
+                self?.tableView.insertRows(at: insertionsIndexPaths, with: .automatic)
+                self?.tableView.reloadRows(at: modificationsIndexPaths, with: .automatic)
+                self?.tableView.endUpdates()
+                
+            case .error(let error):
+                print (error.localizedDescription)
+            }
+        }
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -61,38 +109,46 @@ class MyGroupTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            groups?.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            guard let group = filteredGroups?[indexPath.row] else {
+//                filteredGroups?.remove(at: indexPath.row)
+                return
+            }
+            
+            if (try? RealmManager.shared?.delete(object: group)) != nil {
+//                filteredGroups?.remove(at: indexPath.row)
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//            tableView.reloadData()
+            }
         }
     }
     
-    @IBAction func unwindFromTableViewController(_ segue: UIStoryboardSegue){
-        
-        guard let tableViewController = segue.source as? GroupTableViewController,
-              let indexPath = tableViewController.tableView.indexPathForSelectedRow else {return}
-        let group = tableViewController.groups?[indexPath.row]
-        
-        if groups?.filter({$0.groupID == group?.groupID}).count ?? 0 > 0 {return}
-        
-        groups!.append(group!)
-        tableView.reloadData()
-    }
-
+//    @IBAction func unwindFromTableViewController(_ segue: UIStoryboardSegue){
+//
+//        guard let tableViewController = segue.source as? GroupTableViewController,
+//              let indexPath = tableViewController.tableView.indexPathForSelectedRow else {return}
+//        let group = tableViewController.groups?[indexPath.row]
+//
+//        if groups?.filter({$0.groupID == group?.groupID}).count ?? 0 > 0 {return}
+//
+//        groups!.append(group!)
+//        tableView.reloadData()
+//    }
+//
 }
 
 extension MyGroupTableViewController: UISearchBarDelegate {
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-            if searchText == "" {
-                filteredGroups = groups
-            } else {
-                filteredGroups? = groups?.filter { (group) -> Bool in
-            return group.groupName.contains(searchText)
-                } ?? []
-       }
+//            if searchText == "" {
+//                filteredGroups = groups
+//            } else {
+//                filteredGroups? = groups?.filter { (group) -> Bool in
+//            return group.groupName.contains(searchText)
+//                } ?? []
+//       }
 
         tableView.reloadData()
     }
 
-
 }
+

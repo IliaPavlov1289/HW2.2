@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import RealmSwift
 
-class Photo: Decodable {
-    var photoUrl = ""
+class Photo: Object, Decodable {
+    @objc dynamic var photoUrl = ""
     
     enum CodingKeys: String, CodingKey {
         case photoUrl = "url"
@@ -21,8 +22,13 @@ class Photo: Decodable {
     }
 }
 
-class PhotoSizes: Decodable {
-    let sizes: [Photo]
+class PhotoSizes: Object, Decodable {
+    @objc dynamic var id = 0
+    var sizes = List<Photo>()
+
+    override class func primaryKey() -> String? {
+        "id"
+    }
 }
 
 class PhotoList: Decodable {

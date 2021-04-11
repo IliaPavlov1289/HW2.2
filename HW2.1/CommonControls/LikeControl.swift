@@ -8,22 +8,30 @@
 import UIKit
 
 class LikeControl: UIControl {
+    
+    var likeButton = UIButton(type: .custom)
       
-    var countLike: Int = 0
+    var countLike: Int = 0 {
+        didSet {
+            setCount()
+        }
+    }
+    
     var isLiked: Bool = false
+
  
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        likeButton()
+        setupButton()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        likeButton()
+        setupButton()
     }
     
-    private func likeButton(){
-        let likeButton = UIButton(type: .custom)
+    private func setupButton(){
         likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
         likeButton.setTitle("\(countLike)", for: .normal)
         likeButton.setTitleColor(.black, for: .normal)
@@ -48,6 +56,10 @@ class LikeControl: UIControl {
                           options: .transitionFlipFromLeft,
                           animations: {sender.setTitle("\(self.countLike)", for: .normal)
                           })
+    }
+    
+    private func setCount() {
+        likeButton.setTitle("\(countLike)", for: .normal)
     }
 }
 

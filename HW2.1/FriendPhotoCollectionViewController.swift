@@ -6,18 +6,22 @@
 //
 
 import UIKit
+import RealmSwift
 
 private let reuseIdentifier = "Cell"
 
 class FriendPhotoCollectionViewController: UICollectionViewController {
     
-    var userID = 0.0
+    var userID = 0
     
-    var photos: [PhotoSizes]? = []
+    var photos: [PhotoSizes]? {
+        guard let photos: Results<PhotoSizes> = RealmManager.shared?.getObjects()
+        else { return [] }
+        return Array(photos)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(userID)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -26,8 +30,10 @@ class FriendPhotoCollectionViewController: UICollectionViewController {
         let token = Session.shared.token
         
         NetworkManager.loadUserPhotos(token: token, userID: userID) { [weak self] (Photos) in
+            
+            try? RealmManager.shared?.add(objects: Photos)
 
-            self?.photos = Photos
+ //           self?.photos = Photos
             
             self?.collectionView.reloadData()
         }

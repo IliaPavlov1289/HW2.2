@@ -7,6 +7,7 @@
 
 import Foundation
 import Alamofire
+import RealmSwift
 
 
 class NetworkManager {
@@ -23,25 +24,6 @@ class NetworkManager {
 
     private init() {
     
-    }
-    
-    static func loadUserGroups(token: String, completion: @escaping ([Group]) -> Void) {
-        let baseURL = "https://api.vk.com"
-        let path = "/method/groups.get"
-
-        let params: Parameters = [
-            "access_token": token,
-            "extended": 1,
-            "v": "5.92"
-        ]
-
-        NetworkManager.sessionAF.request(baseURL + path, method: .get, parameters: params).responseData { response in
-            guard let data = response.value else {return}
-
-            let groups = try! JSONDecoder().decode(GroupResponse.self, from: data).response.items
-            
-            completion(groups)
-        }
     }
     
     static func loadSearchGroups(token: String,searchText: String ) {
@@ -61,6 +43,40 @@ class NetworkManager {
         }
     }
 
+    static func saveData<T: Object>(_ data: [T]) {
+        do {
+            let realm = try Realm()
+            let oldDate = realm.objects(T.self)
+            realm.beginWrite()
+            realm.delete(oldDate)
+            realm.add(data)
+            try realm.commitWrite()
+        } catch {
+            print(error)
+        }
+    }
+    
+    static func loadUserGroups(token: String, completion: @escaping ([Group]) -> Void) {
+        let baseURL = "https://api.vk.com"
+        let path = "/method/groups.get"
+
+        let params: Parameters = [
+            "access_token": token,
+            "extended": 1,
+            "v": "5.92"
+        ]
+
+        NetworkManager.sessionAF.request(baseURL + path, method: .get, parameters: params).responseData { response in
+            guard let data = response.value else {return}
+
+            let groups = try! JSONDecoder().decode(GroupResponse.self, from: data).response.items
+            
+            self.saveData(groups)
+            
+            completion(groups)
+        }
+    }
+    
     static func loadUserFriends(token: String, completion: @escaping ([User]) -> Void) {
         let baseURL = "https://api.vk.com"
         let path = "/method/friends.get"
@@ -75,12 +91,14 @@ class NetworkManager {
             
             let users = try! JSONDecoder().decode(UserResponse.self, from: data).response.items
             
+            self.saveData(users)
+            
             completion(users)
                    
         }
     }
     
-    static func loadUserPhotos(token: String, userID: Double, completion: @escaping ([PhotoSizes]) -> Void) {
+    static func loadUserPhotos(token: String, userID: Int, completion: @escaping ([PhotoSizes]) -> Void) {
         let baseURL = "https://api.vk.com"
         let path = "/method/photos.getAll"
         
@@ -96,8 +114,36 @@ class NetworkManager {
             
             let photos = try! JSONDecoder().decode(PhotoResponse.self, from: data).response.items
             
+            self.saveData(photos)
+            
             completion(photos)
             
         }
     }
+    
+    static func loadNewsPost(token: String, completion: @escaping ([NewsPost], [User], [Group]) -> Void) {
+        let baseURL = "https://api.vk.com"
+        let path = "/method/newsfeed.get"
+        
+        let params: Parameters = [
+            "access_token": token,
+            "filters": "post",
+            "count": 5,
+            "v": "5.111"
+        ]
+        
+        NetworkManager.sessionAF.request(baseURL + path, method: .get, parameters: params).responseData { response in
+            guard let data = response.value else { return }
+            
+            let news = try! JSONDecoder().decode(NewsResponse.self, from: data).response.items
+            
+            let users = try! JSONDecoder().decode(NewsResponse.self, from: data).response.profiles
+            
+            let groups = try! JSONDecoder().decode(NewsResponse.self, from: data).response.groups
+            
+            completion(news, users, groups)
+            
+        }
+    }
+    
 }

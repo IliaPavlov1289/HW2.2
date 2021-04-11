@@ -8,22 +8,27 @@
 import UIKit
 
 class CommentsControl: UIControl {
+    
+    var commentButton = UIButton(type: .custom)
       
-    var countComments: Int = 0
+    var countComments: Int = 0 {
+        didSet {
+            setCount()
+        }
+    }
     var isComment: Bool = false
  
     override init(frame: CGRect) {
         super.init(frame: frame)
-        commentButton()
+        setupButton()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        commentButton()
+        setupButton()
     }
     
-    private func commentButton(){
-        let commentButton = UIButton(type: .custom)
+    private func setupButton(){
         commentButton.setImage(UIImage(systemName: "bubble.left"), for: .normal)
         commentButton.setTitle("\(countComments)", for: .normal)
         commentButton.setTitleColor(.black, for: .normal)
@@ -44,4 +49,9 @@ class CommentsControl: UIControl {
             sender.setTitle("\(countComments)", for: .normal)
         }
     }
+    
+    private func setCount() {
+        commentButton.setTitle("\(countComments)", for: .normal)
+    }
+    
 }

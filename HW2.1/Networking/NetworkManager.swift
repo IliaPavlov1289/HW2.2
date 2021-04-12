@@ -128,20 +128,32 @@ class NetworkManager {
         let params: Parameters = [
             "access_token": token,
             "filters": "post",
-            "count": 5,
+            "count": 40,
             "v": "5.111"
         ]
         
         NetworkManager.sessionAF.request(baseURL + path, method: .get, parameters: params).responseData { response in
             guard let data = response.value else { return }
             
-            let news = try! JSONDecoder().decode(NewsResponse.self, from: data).response.items
+            let dispatchGroup = DispatchGroup()
             
-            let users = try! JSONDecoder().decode(NewsResponse.self, from: data).response.profiles
+            var news: [NewsPost] = []
+            var users: [User] = []
+            var groups: [Group] = []
             
-            let groups = try! JSONDecoder().decode(NewsResponse.self, from: data).response.groups
+            DispatchQueue.global().async(group: dispatchGroup) {
+            news = try! JSONDecoder().decode(NewsResponse.self, from: data).response.items
+            }
+            DispatchQueue.global().async(group: dispatchGroup) {
+            users = try! JSONDecoder().decode(NewsResponse.self, from: data).response.profiles
+            }
+            DispatchQueue.global().async(group: dispatchGroup) {
+            groups = try! JSONDecoder().decode(NewsResponse.self, from: data).response.groups
+            }
             
+            dispatchGroup.notify(queue: DispatchQueue.main) {
             completion(news, users, groups)
+            }
             
         }
     }

@@ -26,11 +26,14 @@ class NewsTableViewController: UITableViewController {
         let token = Session.shared.token
         
         NetworkManager.loadNewsPost(token: token) { [weak self] (NewsPostes, User, Group) in
+            DispatchQueue.main.async {
             self?.news = NewsPostes
             self?.users = User
             self?.groups = Group
+                print(self?.groups.count)
             
             self?.tableView.reloadData()
+            }
         }
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -44,11 +47,11 @@ class NewsTableViewController: UITableViewController {
             if id > 0 {
                 let index = users.firstIndex{$0.userID == id} ?? 0
                 cell.senderIconImage.downloadImage(from: users[index].userIcon )
-                cell.senderNameLabel.text = users[indexPath.row].userName
+                cell.senderNameLabel.text = users[index].userName
             } else {
                 let index = groups.firstIndex{$0.groupID == -id} ?? 0
                 cell.senderIconImage.downloadImage(from: groups[index].groupIcon )
-                cell.senderNameLabel.text = groups[indexPath.row].groupName
+                cell.senderNameLabel.text = groups[index].groupName
             }
 //            cell.senderIconImage.image = UIImage(named: news[indexPath.row].senderIcon)
 //            cell.senderNameLabel.text = news[indexPath.row].senderName

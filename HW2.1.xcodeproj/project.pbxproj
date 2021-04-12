@@ -188,7 +188,6 @@
 				C93FCA8625CEF08E0022EA8E /* Networking */,
 				C9052E5C25CC7A43006417CA /* Helpers */,
 				C945811B25BDABCB0058D1DF /* CommonControls */,
-				C9E18EAB25B8A4D300011D89 /* XIB */,
 				C90783A825AA14CC00894143 /* Model */,
 				C9E8C29825A718A000E0E75B /* Cells */,
 				C92441B5258F9B2B00A95FA2 /* AppDelegate.swift */,
@@ -224,6 +223,7 @@
 		C945811B25BDABCB0058D1DF /* CommonControls */ = {
 			isa = PBXGroup;
 			children = (
+				C9E18EAB25B8A4D300011D89 /* XIB */,
 				C9C618AE25B0C4D800C4EEAC /* LikeControl.swift */,
 				C945811C25BDACAD0058D1DF /* CommentsControl.swift */,
 				C945811F25BDACFB0058D1DF /* RepostControl.swift */,

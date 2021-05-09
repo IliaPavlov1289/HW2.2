@@ -24,6 +24,12 @@ class FriendTableViewController: UITableViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        Realm.Configuration.defaultConfiguration = {
+            var config = Realm.Configuration.defaultConfiguration
+            config.deleteRealmIfMigrationNeeded = true
+            return config
+        }()
 
         tableView.register(UINib(nibName: "VKTableViewCell", bundle: nil), forCellReuseIdentifier: "VKCell")
 
@@ -43,18 +49,20 @@ class FriendTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let token = Session.shared.token
+//        let token = Session.shared.token
         
-        NetworkManager.loadUserFriends(token: token) { [weak self] (Users) in
+//        NetworkManager.loadUserFriends(token: token) { [weak self] (Users) in
+//
+////            self?.friends = Users
+//
+//            try? RealmManager.shared?.add(objects: Users)
+        VKSFriendService().get()
+        
+        self.filteredFriends = self.friends ?? []
+        self.sections = self.createHeaderSections() ?? []
             
-//            self?.friends = Users
-            
-            try? RealmManager.shared?.add(objects: Users)
-            self?.filteredFriends = self?.friends ?? []
-            self?.sections = self?.createHeaderSections() ?? []
-            
-            self?.tableView.reloadData()
-        }
+        self.tableView.reloadData()
+//        }
 
     }
     

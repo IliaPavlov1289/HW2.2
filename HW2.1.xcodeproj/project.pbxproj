@@ -45,6 +45,7 @@
 		C9DBAD7525C6BC9500BBC551 /* PreviewPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DBAD7425C6BC9500BBC551 /* PreviewPhotoViewController.swift */; };
 		C9E8C29B25A7190D00E0E75B /* VKTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E8C29A25A7190D00E0E75B /* VKTableViewCell.swift */; };
 		C9E8C29E25A7893000E0E75B /* MyGroupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E8C29D25A7893000E0E75B /* MyGroupTableViewController.swift */; };
+		C9E91F532625AC84004A3E50 /* UserVKService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E91F522625AC84004A3E50 /* UserVKService.swift */; };
 		C9EBFA8F25E52DF900E88FCD /* VKTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9EBFA8D25E52DF900E88FCD /* VKTableViewCell.xib */; };
 		C9EEE0C9261F8BFB0041CEE3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EEE0C8261F8BFB0041CEE3 /* Extensions.swift */; };
 		C9F3F23725C46DB1002D4AED /* IconAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F3F23625C46DB1002D4AED /* IconAction.swift */; };
@@ -95,6 +96,7 @@
 		C9DBAD7425C6BC9500BBC551 /* PreviewPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewPhotoViewController.swift; sourceTree = "<group>"; };
 		C9E8C29A25A7190D00E0E75B /* VKTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKTableViewCell.swift; sourceTree = "<group>"; };
 		C9E8C29D25A7893000E0E75B /* MyGroupTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupTableViewController.swift; sourceTree = "<group>"; };
+		C9E91F522625AC84004A3E50 /* UserVKService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserVKService.swift; sourceTree = "<group>"; };
 		C9EBFA8D25E52DF900E88FCD /* VKTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VKTableViewCell.xib; sourceTree = "<group>"; };
 		C9EEE0C8261F8BFB0041CEE3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C9F3F23625C46DB1002D4AED /* IconAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconAction.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 		C92441B4258F9B2B00A95FA2 /* HW2.1 */ = {
 			isa = PBXGroup;
 			children = (
+				C9E91F512625AC65004A3E50 /* Operation */,
 				C91FD09625F656E300F8AF41 /* RealmManager */,
 				C93FCA8625CEF08E0022EA8E /* Networking */,
 				C9052E5C25CC7A43006417CA /* Helpers */,
@@ -251,6 +254,14 @@
 				C91474CE25BA054A0026A1BD /* NewsTableViewCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		C9E91F512625AC65004A3E50 /* Operation */ = {
+			isa = PBXGroup;
+			children = (
+				C9E91F522625AC84004A3E50 /* UserVKService.swift */,
+			);
+			path = Operation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,6 +385,7 @@
 				C9D049F925E44EEE00178802 /* TabBarController.swift in Sources */,
 				C93BBCCE25BC650100DB97F7 /* SearchHeader.swift in Sources */,
 				C9052E6125CC7ED5006417CA /* CustomPushAnimator.swift in Sources */,
+				C9E91F532625AC84004A3E50 /* UserVKService.swift in Sources */,
 				C9C618AF25B0C4D800C4EEAC /* LikeControl.swift in Sources */,
 				C9E8C29E25A7893000E0E75B /* MyGroupTableViewController.swift in Sources */,
 				C9BEF99425A8B37B00BA3C00 /* FriendTableViewController.swift in Sources */,

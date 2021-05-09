@@ -30,7 +30,6 @@ class NewsTableViewController: UITableViewController {
             self?.news = NewsPostes
             self?.users = User
             self?.groups = Group
-                print(self?.groups.count)
             
             self?.tableView.reloadData()
             }
